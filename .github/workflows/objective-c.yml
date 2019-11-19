@@ -1,0 +1,16 @@
+name: Objective-C CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: macOS-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v1
+    - name: Install
+      run: pod install
+    - name: Build
+      run: xcodebuild test -workspace geopackage-ios.xcworkspace -scheme geopackage-ios -destination 'platform=iOS Simulator,OS=latest,name=iPhone 11'
