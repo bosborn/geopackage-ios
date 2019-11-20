@@ -1,8 +1,9 @@
-name: Objective-C CI
+name: Build
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
+  
   build:
 
     runs-on: macOS-latest
@@ -21,4 +22,4 @@ jobs:
     - name: Install
       run: pod install
     - name: Build
-      run: xcodebuild test -workspace geopackage-ios.xcworkspace -scheme geopackage-ios -destination 'platform=iOS Simulator,OS=latest,name=iPhone 11'
+      run: xcodebuild build-for-testing -workspace geopackage-ios.xcworkspace -scheme geopackage-ios -destination 'platform=iOS Simulator,OS=latest,name=iPhone 11'
