@@ -23,7 +23,5 @@ jobs:
       run: |
         pod repo update
         pod install
-    - name: Install
-      run: pod install
     - name: Build
       run: xcodebuild test -workspace geopackage-ios.xcworkspace -scheme geopackage-ios -destination 'platform=iOS Simulator,OS=latest,name=iPhone 11'
